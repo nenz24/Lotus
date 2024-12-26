@@ -1,4 +1,4 @@
-name: Lotus
+name: myapp
 description: "Dicoding last submission, 'Lotus' a E-Commerce project using Flutter"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.

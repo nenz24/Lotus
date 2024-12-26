@@ -176,13 +176,13 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "Lotus",
+      "name": "myapp",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-12-26T14:52:00.886986Z",
+  "generated": "2024-12-26T15:07:32.494675Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///home/user/flutter",
