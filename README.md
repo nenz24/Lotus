@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# myapp
 
-A new Flutter project.
+# Lotus
+
+Dicoding final submissions, E-Commerce multiplatform App using Flutter
 
 ## Getting Started
 
