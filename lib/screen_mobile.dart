@@ -1,6 +1,6 @@
 import 'mobile_screen1.dart';
 import 'mobile_screen2.dart';
-import 'mobile_screen3.dart';
+import 'mobile-screen-3/mobile_screen3.dart';
 import 'package:flutter/material.dart';
 
 class ScreenMobile extends StatefulWidget {
@@ -41,7 +41,7 @@ class _ScreenMobile extends State<ScreenMobile> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.shopping_bag), label: 'Shop'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle_outlined), label: 'Account'),
+                icon: Icon(Icons.account_circle_outlined), label: 'Profile'),
           ],
           currentIndex: _SelectedIndex,
           onTap: _onItemTapped,
