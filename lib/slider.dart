@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'model/data.dart'; 
+import 'model/data.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final newDataItems = dataItemsList.where((data) => data.isNew).toList();
+
     return ImageSlideshow(
       width: double.infinity,
       height: 200,
@@ -15,12 +17,12 @@ class NewProduct extends StatelessWidget {
       indicatorColor: Colors.transparent,
       autoPlayInterval: 3000,
       isLoop: true,
-      children: dataItemsNewList.map((data) {
+      children: newDataItems.map((data) {
         return Center(
           child: Card(
             elevation: 5,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15), 
+              borderRadius: BorderRadius.circular(15),
             ),
             margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Column(
@@ -29,9 +31,9 @@ class NewProduct extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                   child: Image.asset(
-                    data.imageAsset,
-                    fit: BoxFit.cover, 
-                    height: 200, 
+                    data.logo,
+                    fit: BoxFit.cover,
+                    height: 200,
                   ),
                 ),
                 Padding(
@@ -43,13 +45,14 @@ class NewProduct extends StatelessWidget {
                         data.name,
                         style: TextStyle(
                           fontSize: 18,
+                          fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
                           color: Colors.black87,
                         ),
                       ),
                       SizedBox(height: 8),
                       Text(
-                        data.price,
+                        '\$${data.price}',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.grey[700],
@@ -66,3 +69,4 @@ class NewProduct extends StatelessWidget {
     );
   }
 }
+
