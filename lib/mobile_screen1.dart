@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'slider.dart';
 import 'model/data.dart';
+import 'package:badges/badges.dart' as badges;
 
 class FirstScreenMobile extends StatefulWidget {
   const FirstScreenMobile({Key? key}) : super(key: key);
@@ -53,12 +54,7 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
                     });
                   },
                 ),
-                if (!isSearching)
-                  IconButton(
-                    icon: Icon(Icons.shopping_cart),
-                    color: Colors.white,
-                    onPressed: () {},
-                  )
+                  
               ],
             ),
           )

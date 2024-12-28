@@ -8,6 +8,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "badges",
+      "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/badges-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -90,6 +96,12 @@
       "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/leak_tracker_testing-3.0.1",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "line_awesome_flutter",
+      "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/line_awesome_flutter-3.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "lints",
@@ -182,7 +194,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-12-26T15:07:32.494675Z",
+  "generated": "2024-12-28T18:19:01.148378Z",
   "generator": "pub",
   "generatorVersion": "3.5.3",
   "flutterRoot": "file:///home/user/flutter",
