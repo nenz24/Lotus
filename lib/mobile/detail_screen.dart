@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'model/data.dart';
+import '../model/data.dart';
 import 'package:badges/badges.dart' as badges;
 
 class DetailScreen extends StatelessWidget {
@@ -60,37 +60,48 @@ class DetailScreen extends StatelessWidget {
         },
         body: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Card(
-                  clipBehavior: Clip.hardEdge,
-                  elevation: 2,
-                  child: Center(
-                    child: Image.asset(data.logo, fit: BoxFit.cover,),
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    clipBehavior: Clip.hardEdge,
+                    elevation: 2,
+                    child: Center(
+                      child: Image.asset(
+                        data.logo,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Text('Detailed Product',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
-                ),),
-              ),
-              Container(
-                padding: EdgeInsets.all(16),
-                child: Text(data.description,
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  fontSize: 15
-                ),),
-              )
-            ]
-          ),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    'Detailed Product',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    data.description,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(fontSize: 15),
+                  ),
+                )
+              ]),
+        ),
+      ),
+      bottomNavigationBar: InkWell(
+        onTap: () {
+        },
+        child: ElevatedButton(onPressed: (){}, child: Text('Add To Cart'),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.yellow,
+          foregroundColor: Colors.black
+        ),
         ),
       ),
     );

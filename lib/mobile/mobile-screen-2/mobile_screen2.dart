@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/detail_screen.dart';
-import 'package:myapp/mobile-screen-2/shop-widget/data_widget.dart';
+import 'package:myapp/mobile/detail_screen.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:myapp/mobile/mobile-screen-2/shop-widget/data_widget.dart';
 import 'package:myapp/model/data.dart';
 
 class SecondScreenMobile extends StatefulWidget {
@@ -56,12 +57,10 @@ class _SecondScreenMobileState extends State<SecondScreenMobile> {
           ];
         },
         body: SingleChildScrollView(
-          // Wrap the body in SingleChildScrollView
           child: Column(
             children: [
-              // Background Image Container
               Container(
-                height: 170,
+                height: 150,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('images/Bg.png'),
@@ -80,13 +79,11 @@ class _SecondScreenMobileState extends State<SecondScreenMobile> {
                   ),
                 ),
               ),
-              // GridView inside the scrollable area
               Container(
                 padding: const EdgeInsets.all(8),
                 child: GridView.builder(
-                  shrinkWrap: true, // Ensure it takes only the needed space
-                  physics:
-                      NeverScrollableScrollPhysics(), // Disable internal scroll
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8,
@@ -113,7 +110,18 @@ class _SecondScreenMobileState extends State<SecondScreenMobile> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.shopping_cart_checkout),
+        child: badges.Badge(
+            badgeContent: Text('10'),
+            showBadge: true,
+            position: badges.BadgePosition.topEnd(),
+            badgeAnimation: badges.BadgeAnimation.scale(toAnimate: true),
+            badgeStyle: badges.BadgeStyle(
+              shape: badges.BadgeShape.circle,
+              badgeColor: Colors.yellow,
+              elevation: 4,
+              padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+            ),
+            child: Icon(Icons.shopping_cart_checkout)),
         backgroundColor: const Color.fromARGB(255, 92, 87, 87),
         foregroundColor: Colors.white,
         onPressed: () {},

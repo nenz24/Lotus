@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'mobile_screen1.dart';
+import 'mobile/mobile-screen-1/mobile_screen1.dart';
 import 'web_screen.dart';
-import 'slider.dart';
-import 'screen_mobile.dart';
+import 'mobile/mobile-screen-1/widget-screen/slider.dart';
+import 'mobile/screen_mobile.dart';
 
 void main() => runApp(MyApp());
 

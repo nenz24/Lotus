@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'slider.dart';
-import 'model/data.dart';
+import 'widget-screen/slider.dart';
+import '../../model/data.dart';
 import 'package:badges/badges.dart' as badges;
 
 class FirstScreenMobile extends StatefulWidget {

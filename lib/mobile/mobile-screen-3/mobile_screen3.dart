@@ -7,13 +7,13 @@ class ThirdScreenMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: Center(
           child: Text(
             'Profile',
             style: TextStyle(
+              fontFamily: 'Montserrat',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -21,7 +21,7 @@ class ThirdScreenMobile extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
               Stack(

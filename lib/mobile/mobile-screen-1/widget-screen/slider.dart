@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
-import 'model/data.dart';
+import '../../../model/data.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({Key? key}) : super(key: key);

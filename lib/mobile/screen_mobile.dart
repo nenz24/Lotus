@@ -1,4 +1,4 @@
-import 'mobile_screen1.dart';
+import 'mobile-screen-1/mobile_screen1.dart';
 import 'mobile-screen-2/mobile_screen2.dart';
 import 'mobile-screen-3/mobile_screen3.dart';
 import 'package:flutter/material.dart';
