@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/main.dart';
+import 'package:myapp/webscreen/detail_screen.dart';
+import 'package:myapp/webscreen/shopping.dart';
 import '../model/data.dart';
 
 class FirstScreenWeb extends StatelessWidget {
@@ -23,18 +26,28 @@ class FirstScreenWeb extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return MyApp();
+                      }));
+                    },
                     child: Text(
-                      'Shop',
+                      'Home',
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     )),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return Shopping();
+                      }));
+                    },
                     child: Text(
-                      'Catalogue',
+                      'Shop',
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           color: Colors.white,
@@ -130,118 +143,174 @@ class FirstScreenWeb extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 11, fontFamily: 'Montserrat'),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Shopping();
+                            }));
+                          },
                         ),
                       ],
                     ))),
             SizedBox(height: 50),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: EdgeInsets.symmetric(horizontal: 50),
                 child: Column(
-                  children: [
-              Text(
-                'New Collections',
-                style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Check out our new collections',
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 16),
-              ),
-              SizedBox(height: 20),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: gridCount,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 3 / 4,
-                ),
-                itemCount:
-                    dataItemsList.where((data) => data.isNew).toList().length,
-                itemBuilder: (context, index) {
-                  final newData =
-                      dataItemsList.where((data) => data.isNew).toList();
-                  final data = newData[index];
-                  return Card(
-                      child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        height: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(data.logo),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      SizedBox(height: 10),
                       Text(
-                        data.name,
+                        'New Collections',
                         style: TextStyle(
                             fontFamily: 'Montserrat',
-                            fontSize: 14,
+                            fontSize: 28,
                             fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        '\$${data.price}',
-                        style: TextStyle(fontFamily: 'Montserrat'),
-                      ),
-                    ],
-                  ));
-                },
-              ),
-              SizedBox(height: 50),
-
-              // Categories Section
-              Text(
-                'Categories',
-                style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Discover our collections by categories',
-                style: TextStyle(fontFamily: 'Montserrat', fontSize: 16),
-              ),
-              SizedBox(height: 20),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                  childAspectRatio: 1,
-                ),
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  final Data data = dataItemsList[index];
-                  return Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 40,
-                        backgroundImage: AssetImage(data.logo),
                       ),
                       SizedBox(height: 10),
                       Text(
-                        'Category ${index + 1}',
-                        style: TextStyle(fontFamily: 'Montserrat'),
+                        'Check out our new collections',
+                        style:
+                            TextStyle(fontFamily: 'Montserrat', fontSize: 16),
                       ),
-                    ],
-                  );
-                },
-              ),
-              SizedBox(height: 50),
-            ]))
+                      SizedBox(height: 10),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: gridCount,
+                          crossAxisSpacing: 16,
+                          mainAxisSpacing: 16,
+                        ),
+                        itemCount: dataItemsList
+                            .where((data) => data.isNew)
+                            .toList()
+                            .length,
+                        itemBuilder: (context, index) {
+                          final newData = dataItemsList
+                              .where((data) => data.isNew)
+                              .toList();
+                          final data = newData[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailScreenWeb(data: data);
+                              }));
+                            },
+                            child: Card(
+                                child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Expanded(
+                                    child: Image.asset(data.logo,
+                                        fit: BoxFit.cover)),
+                                SizedBox(height: 10),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    data.name,
+                                    style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8, bottom: 8.0),
+                                  child: Text(
+                                    '\$${data.price}',
+                                    style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            )),
+                          );
+                        },
+                      ),
+                      SizedBox(height: 15),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 5.0),
+                          child: ElevatedButton(
+                              iconAlignment: IconAlignment.end,
+                              style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(150, 40),
+                                  shadowColor: Colors.transparent,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(2)),
+                                  foregroundColor: Colors.black,
+                                  side: BorderSide(
+                                      width: 0.5, color: Colors.grey),
+                                  backgroundColor: Colors.transparent),
+                              onPressed: () {},
+                              child: Text(
+                                'All Collection',
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        ),
+                      ),
+                      SizedBox(height: 50),
+                      Text(
+                        'Best Sellers',
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Top Rated Jewelry From Our Collections',
+                        style:
+                            TextStyle(fontFamily: 'Montserrat', fontSize: 16),
+                      ),
+                      SizedBox(height: 20),
+                      GridView.builder(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 5,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,
+                          childAspectRatio: 1,
+                        ),
+                        itemCount: 5,
+                        itemBuilder: (context, index) {
+                          final Data items = dataItemsList[index];
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return DetailScreenWeb(data: items);
+                              }));
+                            },
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  radius: 40,
+                                  backgroundImage: AssetImage(items.logo),
+                                ),
+                                SizedBox(height: 10),
+                                Expanded(
+                                  child: Text(
+                                    items.name,
+                                    style: TextStyle(
+                                        fontFamily: 'Montserrat',
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(height: 50),
+                    ]))
           ],
         )));
   }

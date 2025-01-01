@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:myapp/model/data.dart';
 import 'mobilescreen/mobile-screen-1/mobile_screen1.dart';
 import 'webscreen/web_screen.dart';
 import 'mobilescreen/mobile-screen-1/widget-screen/slider.dart';
@@ -21,7 +22,10 @@ class MyApp extends StatelessWidget {
           } else if (constraints.maxWidth <= 1200) {
             return FirstScreenWeb(gridCount: 4);
           } else {
-            return FirstScreenWeb(gridCount: 5);
+            return FirstScreenWeb(gridCount: dataItemsList
+                            .where((data) => data.isNew)
+                            .toList()
+                            .length,);
           }
         },
       ),
