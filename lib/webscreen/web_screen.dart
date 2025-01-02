@@ -43,7 +43,7 @@ class FirstScreenWeb extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return Shopping();
+                        return Shopping(gridCount: dataItemsList.length,);
                       }));
                     },
                     child: Text(
@@ -146,7 +146,7 @@ class FirstScreenWeb extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return Shopping();
+                              return Shopping(gridCount: dataItemsList.length,);
                             }));
                           },
                         ),

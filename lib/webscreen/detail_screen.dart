@@ -64,7 +64,6 @@ class _DetailWebScreen extends State<DetailScreenWeb> {
               ),
             ),
             const SizedBox(width: 32),
-
             Expanded(
               flex: 3,
               child: Column(
@@ -89,14 +88,12 @@ class _DetailWebScreen extends State<DetailScreenWeb> {
                     "White Gold Ring",
                     style: TextStyle(fontSize: 18, fontFamily: 'Montserrat'),
                   ),
-                  Text('Width: ${widget.data.width} mm', style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 15
-                  ),),
-                  Text('Weight: ${widget.data.weight} gram', style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 15
-                  )),
+                  Text(
+                    'Width: ${widget.data.width} mm',
+                    style: TextStyle(fontFamily: 'Montserrat', fontSize: 15),
+                  ),
+                  Text('Weight: ${widget.data.weight} gram',
+                      style: TextStyle(fontFamily: 'Montserrat', fontSize: 15)),
                   Text(
                     "\$${widget.data.price.toStringAsFixed(2)}",
                     style: const TextStyle(

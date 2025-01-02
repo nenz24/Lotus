@@ -1,4 +1,4 @@
-#Wed Jan 01 14:31:54 UTC 2025
+#Thu Jan 02 11:32:57 UTC 2025
 base.2=/home/user/myapp/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
 path.2=1/classes.dex
 base.1=/home/user/myapp/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
