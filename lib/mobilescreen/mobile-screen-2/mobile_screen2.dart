@@ -110,22 +110,9 @@ class _SecondScreenMobileState extends State<SecondScreenMobile> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: badges.Badge(
-            badgeContent: Text('10'),
-            showBadge: true,
-            position: badges.BadgePosition.topEnd(),
-            badgeAnimation: badges.BadgeAnimation.scale(toAnimate: true),
-            badgeStyle: badges.BadgeStyle(
-              shape: badges.BadgeShape.circle,
-              badgeColor: Colors.yellow,
-              elevation: 4,
-              padding: const EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-            ),
-            child: Icon(Icons.shopping_cart_checkout)),
+        child: Icon(Icons.shopping_cart_checkout),
         backgroundColor: const Color.fromARGB(255, 92, 87, 87),
         foregroundColor: Colors.white,
-        onPressed: () {},
-      ),
-    );
+        onPressed: () {},));
   }
 }

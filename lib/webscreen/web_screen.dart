@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/main.dart';
 import 'package:myapp/webscreen/detail_screen.dart';
+import 'package:myapp/webscreen/profile_screen.dart';
 import 'package:myapp/webscreen/shopping.dart';
+import 'package:myapp/second-main.dart';
 import '../model/data.dart';
 
 class FirstScreenWeb extends StatelessWidget {
@@ -43,7 +45,7 @@ class FirstScreenWeb extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return Shopping(gridCount: dataItemsList.length,);
+                        return SecondMain();
                       }));
                     },
                     child: Text(
@@ -77,7 +79,12 @@ class FirstScreenWeb extends StatelessWidget {
                     color: Colors.white,
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return ProfileWeb();
+                      }));
+                    },
                     icon: Icon(Icons.person),
                     color: Colors.white,
                   ),
@@ -146,7 +153,9 @@ class FirstScreenWeb extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return Shopping(gridCount: dataItemsList.length,);
+                              return Shopping(
+                                gridCount: dataItemsList.length,
+                              );
                             }));
                           },
                         ),

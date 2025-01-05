@@ -3,6 +3,7 @@ import 'package:myapp/main.dart';
 import 'package:myapp/mobilescreen/mobile-screen-2/shop-widget/data_widget.dart';
 import 'package:myapp/model/data.dart';
 import 'package:myapp/webscreen/detail_screen.dart';
+import 'package:myapp/webscreen/profile_screen.dart';
 
 class Shopping extends StatelessWidget {
   final gridCount;
@@ -80,7 +81,12 @@ class Shopping extends StatelessWidget {
                   color: Colors.white,
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return ProfileWeb();
+                    }));
+                  },
                   icon: Icon(Icons.person),
                   color: Colors.white,
                 ),
@@ -122,6 +128,9 @@ class Shopping extends StatelessWidget {
                     child: Column(
                       children: [
                         Text('Filtered By'),
+                        const VerticalDivider(
+                          color: Colors.black,
+                        )
                       ],
                     )),
                 Container(
@@ -151,38 +160,40 @@ class Shopping extends StatelessWidget {
                               }));
                             },
                             child: Card(
+                                borderOnForeground: true,
                                 child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Expanded(
-                                    child: Image.asset(
-                                  data.logo,
-                                  fit: BoxFit.cover,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Expanded(
+                                        child: Image.asset(
+                                      data.logo,
+                                      fit: BoxFit.cover,
+                                    )),
+                                    SizedBox(height: 5),
+                                    Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: Text(
+                                        data.name,
+                                        style: TextStyle(
+                                            fontFamily: 'Montserrat',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(8),
+                                      child: Text(
+                                        '\$${data.price}',
+                                        style: TextStyle(
+                                            fontFamily: 'Montserrat',
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.grey),
+                                      ),
+                                    )
+                                  ],
                                 )),
-                                SizedBox(height: 5),
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text(
-                                    data.name,
-                                    style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.all(8),
-                                  child: Text(
-                                    '\$${data.price}',
-                                    style: TextStyle(
-                                        fontFamily: 'Montserrat',
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.grey),
-                                  ),
-                                )
-                              ],
-                            )),
                           );
                         }))
               ],

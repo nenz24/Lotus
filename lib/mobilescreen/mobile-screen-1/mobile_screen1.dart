@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/mobilescreen/mobile-screen-2/mobile_screen2.dart';
+import 'package:myapp/mobilescreen/screen_mobile.dart';
 import 'widget-screen/slider.dart';
 import '../../model/data.dart';
 import 'package:badges/badges.dart' as badges;
 
 class FirstScreenMobile extends StatefulWidget {
-  const FirstScreenMobile({Key? key}) : super(key: key);
+  final VoidCallback onStartShopping;
+  const FirstScreenMobile({Key? key, required this.onStartShopping}) : super(key: key);
 
   @override
   State<FirstScreenMobile> createState() => _FirstScreenMobileState();
@@ -54,7 +57,6 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
                     });
                   },
                 ),
-                  
               ],
             ),
           )
@@ -99,7 +101,7 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
                           style:
                               TextStyle(fontSize: 11, fontFamily: 'Montserrat'),
                         ),
-                        onPressed: () {},
+                        onPressed: widget.onStartShopping
                       ),
                     ],
                   ),

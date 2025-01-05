@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       home: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           if (constraints.maxWidth <= 800) {
-            return const ScreenMobile();
+            return ScreenMobile();
           } else if (constraints.maxWidth <= 1200) {
             return FirstScreenWeb(gridCount: 4);
           } else {

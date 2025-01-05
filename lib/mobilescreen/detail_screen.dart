@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import '../model/data.dart';
 import 'package:badges/badges.dart' as badges;
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   final Data data;
-  final int? cartItems;
-  const DetailScreen({Key? key, required this.data, this.cartItems})
-      : super(key: key);
+  const DetailScreen({Key? key, required this.data}) : super(key: key);
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  int cartItems = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +29,7 @@ class DetailScreen extends StatelessWidget {
               ),
               title: Center(
                   child: Text(
-                data.name,
+                widget.data.name,
                 style: TextStyle(
                     fontSize: 20,
                     fontFamily: 'Montserrat',
@@ -34,7 +39,7 @@ class DetailScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(right: 15),
                   child: badges.Badge(
-                    badgeContent: Text('10'),
+                    badgeContent: Text('${cartItems}'),
                     showBadge: true,
                     position: badges.BadgePosition.topEnd(),
                     badgeAnimation:
@@ -69,7 +74,7 @@ class DetailScreen extends StatelessWidget {
                     elevation: 2,
                     child: Center(
                       child: Image.asset(
-                        data.logo,
+                        widget.data.logo,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -86,7 +91,7 @@ class DetailScreen extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(16),
                   child: Text(
-                    data.description,
+                    widget.data.description,
                     textAlign: TextAlign.start,
                     style: TextStyle(fontSize: 15),
                   ),
@@ -95,13 +100,17 @@ class DetailScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: InkWell(
-        onTap: () {
-        },
-        child: ElevatedButton(onPressed: (){}, child: Text('Add To Cart'),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.yellow,
-          foregroundColor: Colors.black
-        ),
+        onTap: () {},
+        child: ElevatedButton(
+          onPressed: () {
+            setState(() {
+              cartItems++;
+            });
+            ;
+          },
+          child: Text('Add To Cart'),
+          style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.yellow, foregroundColor: Colors.black),
         ),
       ),
     );
