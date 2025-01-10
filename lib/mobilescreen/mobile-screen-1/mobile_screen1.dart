@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/mobilescreen/mobile-screen-2/mobile_screen2.dart';
-import 'package:myapp/mobilescreen/screen_mobile.dart';
 import 'widget-screen/slider.dart';
-import '../../model/data.dart';
-import 'package:badges/badges.dart' as badges;
 
 class FirstScreenMobile extends StatefulWidget {
   final VoidCallback onStartShopping;
-  const FirstScreenMobile({Key? key, required this.onStartShopping}) : super(key: key);
+  const FirstScreenMobile({Key? key, required this.onStartShopping})
+      : super(key: key);
 
   @override
   State<FirstScreenMobile> createState() => _FirstScreenMobileState();
@@ -23,11 +20,6 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          color: Colors.white,
-          onPressed: () {},
-        ),
         title: isSearching
             ? TextField(
                 controller: searchController,
@@ -57,6 +49,11 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
                     });
                   },
                 ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.shopping_bag),
+                  color: Colors.white,
+                )
               ],
             ),
           )
@@ -90,19 +87,19 @@ class _FirstScreenMobileState extends State<FirstScreenMobile> {
                         ),
                       ),
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            fixedSize: Size(135, 20),
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.transparent,
-                            shadowColor: Colors.transparent,
-                            side: BorderSide(width: 0.5, color: Colors.white)),
-                        child: Text(
-                          'Start Shopping',
-                          style:
-                              TextStyle(fontSize: 11, fontFamily: 'Montserrat'),
-                        ),
-                        onPressed: widget.onStartShopping
-                      ),
+                          style: ElevatedButton.styleFrom(
+                              fixedSize: Size(135, 20),
+                              foregroundColor: Colors.white,
+                              backgroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              side:
+                                  BorderSide(width: 0.5, color: Colors.white)),
+                          child: Text(
+                            'Start Shopping',
+                            style: TextStyle(
+                                fontSize: 11, fontFamily: 'Montserrat'),
+                          ),
+                          onPressed: widget.onStartShopping),
                     ],
                   ),
                 ),

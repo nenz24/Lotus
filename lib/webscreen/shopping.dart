@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/main.dart';
-import 'package:myapp/mobilescreen/mobile-screen-2/shop-widget/data_widget.dart';
 import 'package:myapp/model/data.dart';
 import 'package:myapp/webscreen/detail_screen.dart';
 import 'package:myapp/webscreen/profile_screen.dart';

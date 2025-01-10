@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/mobilescreen/detail_screen.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:myapp/mobilescreen/mobile-screen-2/shop-widget/data_widget.dart';
 import 'package:myapp/model/data.dart';
 
